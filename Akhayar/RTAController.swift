@@ -18,8 +18,13 @@ class RTAController: UIViewController,
 RTANavigationControllerDelegate{
 
     var akhayarNavController : RTANavigationController!
+    
+    
+    
     var topView : UIView!
     var btn : UIButton!
+    var topViewIndicator : UIView!
+    
     var names : [String] = []
     var selectedindex: Int = 0;
     
@@ -37,6 +42,7 @@ RTANavigationControllerDelegate{
         topView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 64)
         topView.backgroundColor = RTAColor.paleBlack
         
+        
         btn = UIButton()
         topView.addSubview(btn)
         let width = topView.frame.size.width * 0.4;
@@ -48,6 +54,15 @@ RTANavigationControllerDelegate{
         btn.addTarget(self, action: #selector(RTAController.showAkhayarNavController), for: .touchUpInside)
         
         self.view.addSubview(baseView)
+        
+        let indicatorHeight : CGFloat = 2;
+        let indicatorWidth : CGFloat = self.topView.frame.size.width * 0.3
+        
+        self.topViewIndicator = UIView()
+        self.topView.addSubview(self.topViewIndicator)
+        self.topViewIndicator.frame = CGRect(x: 0, y: 0, width: indicatorWidth, height: indicatorHeight)
+        self.topViewIndicator.center = CGPoint(x: self.topView.center.x, y: self.topView.frame.size.height - (indicatorHeight / 2 ))
+        self.topViewIndicator.backgroundColor = UIColor.cyan
         
         
         self.layoutBaseView()
