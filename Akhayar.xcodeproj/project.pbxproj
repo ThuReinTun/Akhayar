@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1562C74C1DB0C63C002FB4C9 /* Home_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1562C74B1DB0C63C002FB4C9 /* Home_ViewController.swift */; };
 		7D0071041DAFDF47002BE757 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0071031DAFDF47002BE757 /* AppDelegate.swift */; };
-		7D0071061DAFDF47002BE757 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0071051DAFDF47002BE757 /* ViewController.swift */; };
 		7D0071091DAFDF47002BE757 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0071071DAFDF47002BE757 /* Main.storyboard */; };
 		7D00710C1DAFDF47002BE757 /* Akhayar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D00710A1DAFDF47002BE757 /* Akhayar.xcdatamodeld */; };
 		7D00710E1DAFDF47002BE757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D00710D1DAFDF47002BE757 /* Assets.xcassets */; };
@@ -17,12 +17,13 @@
 		7D00711F1DAFE52F002BE757 /* akhayarlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D00711E1DAFE52F002BE757 /* akhayarlogo.png */; };
 		7D0071211DAFE5C7002BE757 /* RTANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0071201DAFE5C7002BE757 /* RTANavigationController.swift */; };
 		7D2670551DAFE9CE003A5014 /* RTAFloatingAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2670541DAFE9CE003A5014 /* RTAFloatingAlertController.swift */; };
+		7DF6ABE41DB0969600D81877 /* RTAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF6ABE31DB0969600D81877 /* RTAColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1562C74B1DB0C63C002FB4C9 /* Home_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_ViewController.swift; sourceTree = "<group>"; };
 		7D0071001DAFDF47002BE757 /* Akhayar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akhayar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0071031DAFDF47002BE757 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7D0071051DAFDF47002BE757 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D0071081DAFDF47002BE757 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D00710B1DAFDF47002BE757 /* Akhayar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Akhayar.xcdatamodel; sourceTree = "<group>"; };
 		7D00710D1DAFDF47002BE757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		7D00711E1DAFE52F002BE757 /* akhayarlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = akhayarlogo.png; sourceTree = "<group>"; };
 		7D0071201DAFE5C7002BE757 /* RTANavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTANavigationController.swift; sourceTree = "<group>"; };
 		7D2670541DAFE9CE003A5014 /* RTAFloatingAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTAFloatingAlertController.swift; sourceTree = "<group>"; };
+		7DF6ABE31DB0969600D81877 /* RTAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTAColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,11 @@
 		7D0071021DAFDF47002BE757 /* Akhayar */ = {
 			isa = PBXGroup;
 			children = (
+				7DF6ABE51DB0976D00D81877 /* TRT source */,
 				7D00711D1DAFE515002BE757 /* Image Assets */,
-				7D00711A1DAFDF80002BE757 /* Source Codes */,
+				7D00711A1DAFDF80002BE757 /* THA souce */,
 				7D0071031DAFDF47002BE757 /* AppDelegate.swift */,
 				7D0071181DAFDF7B002BE757 /* RTAController.swift */,
-				7D0071051DAFDF47002BE757 /* ViewController.swift */,
 				7D0071071DAFDF47002BE757 /* Main.storyboard */,
 				7D00710D1DAFDF47002BE757 /* Assets.xcassets */,
 				7D00710F1DAFDF47002BE757 /* LaunchScreen.storyboard */,
@@ -78,18 +80,19 @@
 			path = Akhayar;
 			sourceTree = "<group>";
 		};
-		7D00711A1DAFDF80002BE757 /* Source Codes */ = {
+		7D00711A1DAFDF80002BE757 /* THA souce */ = {
 			isa = PBXGroup;
 			children = (
 				7D00711C1DAFE04C002BE757 /* BasicUI */,
 				7D00711B1DAFE043002BE757 /* Utilities */,
 			);
-			name = "Source Codes";
+			name = "THA souce";
 			sourceTree = "<group>";
 		};
 		7D00711B1DAFE043002BE757 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7DF6ABE31DB0969600D81877 /* RTAColor.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -109,6 +112,14 @@
 				7D00711E1DAFE52F002BE757 /* akhayarlogo.png */,
 			);
 			name = "Image Assets";
+			sourceTree = "<group>";
+		};
+		7DF6ABE51DB0976D00D81877 /* TRT source */ = {
+			isa = PBXGroup;
+			children = (
+				1562C74B1DB0C63C002FB4C9 /* Home_ViewController.swift */,
+			);
+			name = "TRT source";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +196,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D0071061DAFDF47002BE757 /* ViewController.swift in Sources */,
 				7D00710C1DAFDF47002BE757 /* Akhayar.xcdatamodeld in Sources */,
 				7D0071211DAFE5C7002BE757 /* RTANavigationController.swift in Sources */,
+				1562C74C1DB0C63C002FB4C9 /* Home_ViewController.swift in Sources */,
+				7DF6ABE41DB0969600D81877 /* RTAColor.swift in Sources */,
 				7D0071041DAFDF47002BE757 /* AppDelegate.swift in Sources */,
 				7D2670551DAFE9CE003A5014 /* RTAFloatingAlertController.swift in Sources */,
 				7D0071191DAFDF7B002BE757 /* RTAController.swift in Sources */,

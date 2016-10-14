@@ -13,17 +13,18 @@ class RTANavigationController: UIViewController {
     
     var titleText: String!
     var buttonTitles : [String]!
+    var selectedIndex: Int = 0;
     
-    private var roofBarHeight: CGFloat = 44
-    private var roofBarColor : UIColor = UIColor(red: 0x39/0xff, green: 0x39/0xff, blue: 0x39/0xff, alpha: 1)
+    private var roofBarHeight: CGFloat = 64
+    private var roofBarColor : UIColor = RTAColor.paleBlack
     private var roofBar : UIView!
     
-    private var roofLabel : UILabel!
+    private var roofLabel : UIButton!
     private var scrollViewForButton : UIScrollView!
     private var buttons : [UIButton]!
     private var tappedIndex: Int = 0;
     
-    var delegate : RTANavigationControllerDelegate!
+    weak var delegate : RTANavigationControllerDelegate!
     init() {
         super.init(nibName: nil, bundle: nil)
         
@@ -35,9 +36,12 @@ class RTANavigationController: UIViewController {
         initialize()
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.clear
         self.layoutRoofBar()
         self.layoutScrollView()
         self.allocateButtons()
@@ -49,7 +53,9 @@ class RTANavigationController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(_ animated: Bool) {
-        self.view.backgroundColor = UIColor(white: 0.1, alpha: 0.1)
+        UIView.animate(withDuration: 0.5) { 
+            self.view.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
+        }
         self.expandButtons()
     }
     
@@ -74,27 +80,30 @@ class RTANavigationController: UIViewController {
         self.titleText = "Akhayar"
         self.buttonTitles = [];
         self.roofBar = UIView()
-        self.roofLabel = UILabel()
+        self.roofLabel = UIButton()
         self.scrollViewForButton = UIScrollView()
         self.buttons = [];
     }
     
     private func layoutRoofBar() {
         self.view.addSubview(self.roofBar!)
-        self.roofBar.frame = CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: self.roofBarHeight)
+        self.roofBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.roofBarHeight)
         self.roofBar.backgroundColor = self.roofBarColor
         
         
         self.roofBar.addSubview(self.roofLabel)
-        self.roofLabel.font = UIFont(name: "Menlo", size: 18)
-        self.roofLabel.textColor = UIColor.white
+        self.roofLabel.titleLabel?.font = UIFont(name: "Menlo", size: 18)
+//        self.roofLabel.textColor = UIColor.white
+        self.roofLabel.setTitleColor(UIColor.white, for: .normal)
+        self.roofLabel.setTitleColor(UIColor.lightGray, for: .highlighted)
+        self.roofLabel.addTarget(self, action: #selector(RTANavigationController.buttonPressEventHandle(sender:)), for: .touchUpInside)
         
         autoreleasepool{
             let midRoofBarX : CGFloat = self.roofBar.frame.size.width / 2;
-            let midRoofBarY : CGFloat = self.roofBar.frame.size.height / 2;
+            let midRoofBarY : CGFloat = (self.roofBar.frame.size.height + 20 ) / 2;
             let roofBarCenter : CGPoint = CGPoint(x: midRoofBarX, y: midRoofBarY)
-            
-            self.roofLabel.text = self.titleText
+        
+            self.roofLabel.setTitle(self.titleText, for: .normal)
             self.roofLabel.sizeToFit()
             self.roofLabel.center = roofBarCenter;
         }
@@ -109,10 +118,15 @@ class RTANavigationController: UIViewController {
         for i in 0 ..< self.buttonTitles.count {
             let button = UIButton()
             button.setTitle(self.buttonTitles[i], for: .normal)
-            button.setTitleColor(UIColor.black, for: .normal)
+            button.setTitleColor(UIColor.white, for: .normal)
+            
+            if i == self.selectedIndex {
+                button.setTitleColor(UIColor.cyan, for: .normal)
+            }
+            
             button.setTitleColor(UIColor.lightGray, for: UIControlState.highlighted)
             button.tintColor = UIColor.white
-            button.titleLabel?.font = UIFont(name: "Menlo", size: 15)
+            button.titleLabel?.font = UIFont(name: "Menlo-Bold", size: 18)
             button.tag = i;
             button.addTarget(self, action: #selector(RTANavigationController.buttonPressEventHandle(sender:)), for: .touchUpInside)
             self.scrollViewForButton.addSubview(button)
@@ -136,7 +150,7 @@ class RTANavigationController: UIViewController {
                     }, completion: nil)
             delay += 0.05;
         }
-        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: delay + 0.5, repeats: false) { (timer) in
             completion();
         }
     }
@@ -168,20 +182,36 @@ class RTANavigationController: UIViewController {
         
         self.scrollViewForButton.contentSize = CGSize(width:width, height: contentHeight)
     }
+    
+    
     @objc
-    private func buttonPressEventHandle (sender btn : UIButton){
+    private func buttonPressEventHandle (sender btn : UIButton) -> Void {
         
-        
-        UIView.animate(withDuration: 1) { 
+        let duration = 0.05 * Double(self.buttons.count);
+        UIView.animate(withDuration: duration + 1) {
             self.view.backgroundColor = UIColor.clear
         }
-        self.tappedIndex = btn.tag
-        self.shrinkButtons(){
-            self.dismiss(animated: false){
-                b in
-                if self.delegate != nil {
-                    if self.delegate.didNavControllerEndTappingWithButtonAtIndex != nil {
-                        self.delegate.didNavControllerEndTappingWithButtonAtIndex!(self.tappedIndex)
+
+        if btn == self.roofLabel {
+            self.shrinkButtons(){
+                self.dismiss(animated: false){
+                    b in
+                    if self.delegate != nil {
+                        if self.delegate.didNavControllerDidExit != nil {
+                            self.delegate.didNavControllerDidExit!()
+                        }
+                    }
+                }
+            }
+        }else {
+            self.tappedIndex = btn.tag
+            self.shrinkButtons(){
+                self.dismiss(animated: false){
+                    b in
+                    if self.delegate != nil {
+                        if self.delegate.didNavControllerEndTappingWithButtonAtIndex != nil {
+                            self.delegate.didNavControllerEndTappingWithButtonAtIndex!(self.tappedIndex)
+                        }
                     }
                 }
             }
@@ -191,8 +221,12 @@ class RTANavigationController: UIViewController {
 
 
 
+
 @objc
 protocol RTANavigationControllerDelegate{
     @objc
     optional func didNavControllerEndTappingWithButtonAtIndex(_ index: Int)
+    
+    @objc
+    optional func didNavControllerDidExit()
 }

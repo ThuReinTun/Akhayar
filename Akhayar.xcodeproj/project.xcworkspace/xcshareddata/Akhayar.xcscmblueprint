@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0AA50BC0D248B5EA3CD31AB873762E79A31F5FBF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0AA50BC0D248B5EA3CD31AB873762E79A31F5FBF" : 9223372036854775807,
+    "8602FF6E50B5E1446F6CB937ED933BE578C02CBA" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "42316FAD-43CE-4CC2-B1E1-B926F26C0692",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0AA50BC0D248B5EA3CD31AB873762E79A31F5FBF" : "Akhayar\/",
+    "8602FF6E50B5E1446F6CB937ED933BE578C02CBA" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Akhayar",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Akhayar.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ThwinHtooAung\/Akhayar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0AA50BC0D248B5EA3CD31AB873762E79A31F5FBF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ThwinHtooAung\/Akhayar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8602FF6E50B5E1446F6CB937ED933BE578C02CBA"
+    }
+  ]
+}

@@ -24,9 +24,20 @@
                                     <constraint firstAttribute="width" constant="250" id="b6y-AY-fdF"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Akhayar.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlh-Ly-ZAh">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ikf-p9-CN5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="17"/>
+                                <color key="textColor" red="0.30501092359623627" green="0.36047926989386286" blue="0.38063134517766495" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jlh-Ly-ZAh" secondAttribute="trailing" id="Bto-pi-ufy"/>
+                            <constraint firstItem="jlh-Ly-ZAh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="EzP-gi-qkB"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="jlh-Ly-ZAh" secondAttribute="bottom" id="M4g-pU-Ria"/>
                             <constraint firstItem="t61-01-2mM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hgp-r5-mkH"/>
                             <constraint firstItem="t61-01-2mM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xub-0H-dAV"/>
                         </constraints>
